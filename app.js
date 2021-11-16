@@ -6,7 +6,7 @@ projectSelect.forEach(project => {
     let imageName = e.target.getAttribute('data-id');
     preview.style.backgroundImage = `url('img/${imageName}.JPG')`;
   });
-  project.addEventListener('mouseleave', () => {
-    preview.style.backgroundImage = 'none';
-  });
+  // project.addEventListener('mouseleave', () => {
+  //   preview.style.backgroundImage = 'none';
+  // });
 });

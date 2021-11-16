@@ -230,7 +230,6 @@ section{
   }
   #projects .project-card{
     object-fit: fill;
-    height: 300px;
     width: 400px;
   }
 }
@@ -435,6 +434,10 @@ section{
   .pic-div{
     width: 400px;
   }
+
+  #projects .project-card{
+    width: 500px;
+  }
 }
 
 @media screen and (min-width: 1300px) {
@@ -446,6 +449,10 @@ section{
   }
   #education .blue-bg{
     height: 40vh;
+  }
+
+  #projects .project-card{
+    width: 550px;
   }
 }
 
@@ -471,6 +478,10 @@ section{
   .pic-div{
     width: 500px;
   }
+
+  #projects .project-card{
+    width: 600px;
+  }
 }
 
 @media screen and (min-width: 1440px) {
@@ -491,6 +502,7 @@ section{
 
   #home .blue-bg{
     height: 50vh;
+    min-height: 450px;
   }
   #home .text-div{
     width: 595px;

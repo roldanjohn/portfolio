@@ -10,6 +10,8 @@
   --text-size-large: 5.625rem;
   --text-size-regular: 2.5rem;
   --text-size-small: 1.875rem;
+  --show-time: 400ms;
+  --stagger-delay: calc(var(--show-time)*0.5);
 }
 *{
   margin: 0;
@@ -61,11 +63,13 @@ section{
   z-index: 0;
 }
 .pic-div{
+  position: relative;
   aspect-ratio: 6/7;
   width: 250px;
   z-index: 2;
 }
 .text-div{
+  position: relative;
   z-index: 2;
   margin: 30px;
 }
@@ -538,5 +542,71 @@ section{
   #contacts .blue-bg{
     width: 515px;
     height: 315px;
+  }
+}
+
+/* Designs for intersection observers */
+@media screen and (min-width: 620px) {
+  .flesh-bg, .blue-bg, .pic-div, .text-div, #projects-div{
+    opacity: 1;
+  }
+  .flesh-bg.inactive, .blue-bg.inactive, .pic-div.inactive, .text-div.inactive, #projects-div.inactive{
+    opacity: 0;
+  }
+  .flesh-bg{
+    transition: all var(--show-time);
+  }
+  .blue-bg{
+    transition: all var(--show-time) var(--stagger-delay);
+  }
+  .pic-div{
+    right: 0%;
+    transition: all calc(2*var(--show-time)) calc(1.5*var(--stagger-delay));
+  }
+  .text-div{
+    left: 0%;
+    transition: all calc(2*var(--show-time)) calc(3*var(--stagger-delay));
+  }
+  .pic-div.inactive{
+    right: 10%;
+  }
+  .text-div.inactive{
+    left: 10%;
+  }
+  #home .flesh-bg.inactive, #education .flesh-bg.inactive{
+    top: -5%;
+  }
+  #home .blue-bg.inactive, #education .blue-bg.inactive{
+    bottom: -5%;
+  }
+  #technical .blue-bg.inactive{
+    top: -20%;
+  }
+  #technical .flesh-bg.inactive{
+    top: 70%;
+  }
+  #projects .blue-bg.inactive{
+    top: 100%;
+  }
+  #projects .flesh-bg.inactive{
+    bottom: -20%;
+  }
+  #projects .flesh-bg{
+    transition: all var(--show-time) calc(0.5*var(--stagger-delay));
+  }
+  #projects .blue-bg{
+    transition: all var(--show-time);
+  }
+  #projects-div{
+    transition: all var(--show-time) calc(4*var(--stagger-delay));
+  }
+  .project-desc , .project-desc:hover{
+    transition: none;
+  }
+  #contacts .flesh-bg.inactive{
+    right: -20%;
+  }
+  #contacts .blue-bg.inactive{
+    left: -20%;
   }
 }
